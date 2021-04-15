@@ -1,51 +1,46 @@
 import random
 import re
 
-random_words = [
-    'lasagna',
-    'bags',
-    'love',
-    'van',
-    'backseat',
-    'oak tree',
-    'cherry',
-    'summer',
-    'winter',
-    'boy',
-    'girl',
+#DATABANK
+one_three = {'color':['Blue', 'Gray', 'Black', 'Pale', 'Shading', 'Dark'],
+'time':['Winter', 'Yesterday', 'August', 'November', 'Night', 'Noon', 'Never'],
+'adj':['The Worst', 'Sadly', 'Bad', 'Awful']}
+
+four_seven = {'color':['Tinted', 'Blank', 'White', 'Teal'],
+'time':['Autumn', 'Evening', 'Day', 'Spring', 'Today', 'Often'],
+'adj':['Fine', 'Cool', 'Great', 'Comforting']}
+
+eight_ten = {'color':['Yellow', 'Red', 'Bright', 'Pink', 'Sky'],
+'time':['Summer', 'Spring', 'April', 'December', 'January', 'Day', 'Tomorroy', 'Today', 'Now'],
+'adj':['Very Cool', 'Amazing', 'Great', 'Happy', 'Hype']}
+
+things = []
+
+places = ['USA', 'America', 'Alabama', 'Paris', 'Venice', 'Ipanema', 'The Coffe Shop', 'Backstreet', 'Your Apartment', 'Europe']
+
+#SONG NAME TEMPLATES FOR REPLACING
+jazz_temp = ['{color} {thing}',
+'{color} {time}',
+'{color} {place}',
+'{time} In {place}',
+'{adj} {thing}',
+'The {person} In {place}'
 ]
 
-sad_choice = ['troubling', 'boring', 'depressing', 'awful']
-happy_choice = ['funny', 'fascinating', 'kinda cool']
-other_choice = ['interesting', 'exotic', 'weird']
-
-choices = sad_choice + happy_choice + other_choice
-
-questions = [
-    'What are you aiming for in life?: ',
-    'If you had to choose between {}, {}, {}, what describes your love life right now?: ',
-    'Would you like to... go out?: ',
-    'Are you married?: ',
-    'Are you in love?: ',
-    'What music genre do you prefer?: ',
+pop_temp = ['Your {adj} {thing}',
+'{color} {thing}',
+'The {person} Of {time}',
+'{thing} And {thing}',
 ]
 
-name = input('INSERT NAME: ')
+rock_temp = ['Back in {color}',
+'The {thing}',
+'Road To {place}',
+'{adj} Home {place}',
+]
 
 
-print('Nice to meet you, {}'.format(name))
 
-def question_maker():
-    quest1 = input(questions[1].format(random.choice(choices), random.choice(choices), random.choice(choices)))
-    if quest1 in sad_choice:
-        print('sucks to be you')
-    elif quest1 in happy_choice:
-        print('huh, you really be vibin then')
-    elif quest1 in other_choice:
-        print('what the fuck')
-    else:
-        print('what an idiot, goodbye')
-        return
-    quest2 = input(questions[0])
-
-question_maker()
+questions = ['How well are you feeling right now?:\n1 -> 10',
+'Name THREE of your all time favorite things:\n(spaced by only a coma)',
+'What music genre do you prefer?\na)Pop  b)Jazz  c)Rock']
