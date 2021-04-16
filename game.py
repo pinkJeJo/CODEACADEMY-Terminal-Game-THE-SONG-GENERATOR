@@ -18,6 +18,8 @@ things = []
 
 places = ['USA', 'America', 'Alabama', 'Paris', 'Venice', 'Ipanema', 'The Coffe Shop', 'Backstreet', 'Your Apartment', 'Europe']
 
+persons = ['Boy', 'Girl', 'You', 'Her', 'Him', 'Man', 'Woman', 'My Love', 'You', 'Me', 'Friend']
+
 #SONG NAME TEMPLATES FOR REPLACING
 jazz_temp = ['{color} {thing}',
 '{color} {time}',
@@ -39,9 +41,9 @@ rock_temp = ['Back in {color}',
 '{adj} Home {place}',
 ]
 
-questions = ['How well are you feeling right now?\n0 -> 10  ==>',
-'Name THREE of your all time favorite things:\n(spaced by only a coma)  ==>',
-'What music genre do you prefer?\na)Pop  b)Jazz  c)Rock']
+questions = ['\nHow well are you feeling right now?\n0 -> 10  ==>',
+'\nName THREE of your all time favorite things:\n(spaced by only a coma)  ==>',
+'\nWhat music genre do you prefer?\na)Pop  b)Jazz  c)Rock  ==>']
 
 #INDIVIDUAL QUESTIONS FUNCTIONS
 def quest1():
@@ -71,5 +73,21 @@ def quest3():
         return jazz_temp
     elif ans3 == 'c':
         return rock_temp
+#print(quest3())
 
-#def question maker():
+def question_maker():
+    print('Welcome to the SONG NAME GENERATOR')
+    final_data = quest1()
+    final_things = quest2()
+    final_temp = quest3()
+    i = 0
+    for temp in final_temp:
+        print(temp.format(color = random.choice(final_data['color']),
+        thing = random.choice(things),
+        time = random.choice(final_data['time']),
+        adj = random.choice(final_data['adj']),
+        person = random.choice(persons),
+        place = random.choice(places)))
+
+
+question_maker()
