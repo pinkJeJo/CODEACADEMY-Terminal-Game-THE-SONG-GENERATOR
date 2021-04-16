@@ -2,7 +2,7 @@ import random
 import re
 
 #DATABANK
-one_three = {'color':['Blue', 'Gray', 'Black', 'Pale', 'Shading', 'Dark'],
+zero_three = {'color':['Blue', 'Gray', 'Black', 'Pale', 'Shading', 'Dark'],
 'time':['Winter', 'Yesterday', 'August', 'November', 'Night', 'Noon', 'Never'],
 'adj':['The Worst', 'Sadly', 'Bad', 'Awful']}
 
@@ -39,8 +39,37 @@ rock_temp = ['Back in {color}',
 '{adj} Home {place}',
 ]
 
-
-
-questions = ['How well are you feeling right now?:\n1 -> 10',
-'Name THREE of your all time favorite things:\n(spaced by only a coma)',
+questions = ['How well are you feeling right now?\n0 -> 10  ==>',
+'Name THREE of your all time favorite things:\n(spaced by only a coma)  ==>',
 'What music genre do you prefer?\na)Pop  b)Jazz  c)Rock']
+
+#INDIVIDUAL QUESTIONS FUNCTIONS
+def quest1():
+    ans1 = input(questions[0])
+    if int(ans1) not in range(11):
+        print('INCORRECT ANSWER')
+    elif int(ans1) in range(4):
+        return zero_three
+    elif int(ans1) in range(4,8):
+        return four_seven
+    else:
+        return eight_ten
+#print(quest1())
+
+def quest2():
+    ans2 = input(questions[1])
+    for thing in ans2.split(','):
+        things.append(thing)
+    return things
+#print(quest2())
+
+def quest3():
+    ans3 = input(questions[2])
+    if ans3 == 'a':
+        return pop_temp
+    elif ans3 == 'b':
+        return jazz_temp
+    elif ans3 == 'c':
+        return rock_temp
+
+#def question maker():
